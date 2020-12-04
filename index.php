@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $agentname = $_SESSION['username']; 
+    //$agentname = $_SESSION['username']; 
 
     include('DB/connection.php');
 ?>
@@ -93,15 +93,7 @@
 
 <div class="section-title">
 
-    <div class="alert alert-success alert-dismissible" style="display: none;">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong>Success!</strong> Form Submitted successfully. Please hand over the tab to the 
-      receptionist, she will walk you to consultant .
-    </div>
-    <div class="alert alert-danger alert-dismissible" style="display: none;">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong>Error!</strong> Error in form submition.
-    </div>
+    
 
 
 
@@ -113,6 +105,16 @@
     border-radius: 39px;
     margin-top: -200px;
     z-index: 999;">
+
+    <div class="alert alert-success alert-dismissible" style="display: none; border-radius: 15px; text-align:center;">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success!</strong> Form Submitted successfully. Please hand over the tab to the 
+      receptionist, she will walk you to consultant .
+    </div>
+    <div class="alert alert-danger alert-dismissible" style="display: none;">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Error!</strong> Error in form submition.
+    </div>
 	
 <form action="index.php" method="POST" enctype="multipart/form-data">
 <div class="row">
@@ -175,45 +177,28 @@
 <label>Where did you hear about this project? </label>
 <input type="text" class="form-control" name="Hear" placeholder="Dubizzle, Facebook, From a friend " required>
 </div>
+<div class="form-group">
+      <div class="form-group">
+        <label>Select Agent </label>
 
+        <select id="referalAgent" name="referalAgent" style="width:100%;
+        height: 40px;"> 
+          <option value=" ">Click here to Select</option>
+          <option value="Visa">Namita</option>
+          <option value="Global_Visa_enq">Abraham </option>
+          <option value="Visa_Change">Ramiat </option>
+          <option value="Flight_Booking"> Direct Walk in </option>
+          
+        </select>
+    </div>
+    
+          
+</div>
 
 <div class="form-group">
 <label>Who did you speak to before coming to the office? </label>
 <input type="text" class="form-control" name="notes" placeholder=" " required>
 </div>
-<!-- <select id="services" name="services" onchange='on_change(this)'> 
-  <option value=" ">Select</option>
-  <option value="Visa">Visa</option>
-  <option value="Global_Visa">GLobal Visa</option>
-  <option value="Visa_Change">Visa Change </option>
-  <option value="Flight_Booking">Hotel & Flight Bookings </option>
-  <option value="Local_global_tours">Global Tours</option>
-</select>
-</div> -->
-
-<!-- <div id="visas" style="display:none;"> 
-<input type="checkbox" name="DaysVisa" value="14_Days_UAE_VIsa_Change"> 14 Days Visa
-<input type="checkbox" name="DaysVisa" value="30DaysVisa"> 30 Days Visa
-<input type="checkbox" name="DaysVisa" value="90DaysVisa"> 90 Days Visa
-</div>
-
-<div id="Visa_Change" style="display:none;"> 
-<input type="checkbox" name="ChangeVisa" value="Airport"> Airport to Airport
-<input type="checkbox" name="ChangeVisa" value="BusVisaChange"> Bus Visa Change
-</div>
-
-<div id="Global_Visa" style="display:none;"> 
-<input type="checkbox" name="GlobalVisa" value="UkVisa"> UK Visa
-<input type="checkbox" name="GlobalVisa" value="NijaVisa"> Nigeria VIsa
-</div> -->
-
-<!-- end text 2 -->
-
-<!-- <div class="form-group">
-<label>Notes </label>
-<textarea rows="4" cols="50" class="form-control" name="notes" placeholder="Notes " required>
-</textarea>
-</div> -->
 
 <div class="form-group">
 <div class="text-center top-space">
@@ -279,26 +264,8 @@ For Internal Use Only.</small></p>
 <script src="js/animate.js"></script>
 
 <script>
-    function on_change(el){
-        if(el.options[el.selectedIndex].value == 'Visa_Change'){ 
-            document.getElementById('Visa_Change').style.display = 'block'; // Show el
-        }else if (el.options[el.selectedIndex].value == 'Visa') {
-        	document.getElementById('visas').style.display = 'block'; 
-        }else if (el.options[el.selectedIndex].value == 'Global_Visa') {
-            document.getElementById('Global_Visa').style.display = 'block'; 
-        }
-        else{
-            document.getElementById('visas').style.display = 'none';
-            document.getElementById('Visa_Change').style.display = 'none';
-            document.getElementById('Global_Visa').style.display = 'none';
-        }
-    }
 
-    $('input[type="checkbox"]').on('change', function() {
-   $(this).siblings('input[type="checkbox"]').prop('checked', false);
-});
-
-    var IDLE_TIMEOUT = 10 * 60;  // 10 minutes of inactivity
+    var IDLE_TIMEOUT = 10 * 60;  // 1 minutes of inactivity
     var _idleSecondsCounter = 0;
     document.onclick = function() {
         _idleSecondsCounter = 0;
@@ -341,12 +308,10 @@ if(isset($_POST['submit'])) {
     $Hear = $_POST['Hear'];
     
     $notes = $_POST['notes'];
-
-    if(isset($_POST['DaysVisa'])){ $visas = $_POST['DaysVisa']; }else {$visas = '-';}
-    if(isset($_POST['ChangeVisa'])){ $changeVisa = $_POST['ChangeVisa']; }else {$changeVisa = '-';}
-    if(isset($_POST['changeVisa'])){ $globalVisa = $_POST['changeVisa']; }else {$globalVisa = '-';}
+    
     
     $qry = "INSERT into cus_details (FirstName, Surname, Email, MobileNumber, WhatsApp, Nationality, Hear, VisaChangeReq, GlobalVisa, Notes, AgentName, Time) values ('$first_name', '$surname', '$email', '$Phone_Number', '$whatsapp', '$Nationalty', '$Hear', '$changeVisa', '$globalVisa', '$notes', '$agentname', now())";
+    
     if(mysqli_query($con, $qry)) {
         echo '
             <script>

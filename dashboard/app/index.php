@@ -1,6 +1,12 @@
-<?php 
-  session_start();
-  include('../DB/connection.php'); 
+<?php
+    session_start();
+    $agentname = $_SESSION['username']; 
+
+    include('../DB/connection.php');
+    
+    if(!isset($_SESSION['username'])){ //if login in session is not set
+    header("Location: http://localhost/algbra/dashboard/");
+}
 ?>
 
 <!DOCTYPE html>
@@ -743,28 +749,9 @@
                     <!--td><?php //echo $agent; ?></td-->
                     <td><?php echo $time; ?></td>
                     <td>
-                    <div class="dropdown">
-                      <!--Trigger-->
-                    
-                        <a  type="button" id="dropdownMenu2" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="icon ion-android-more-horizontal"></i></a>
-    
-
-                          <!--Menu-->
-                          <div class="dropdown-menu dropdown-primary" style="border-radius: 15px; font-size:13px;">
-                            <a class="dropdown-item" href='view-full-details.php?id=<?php echo $row['ID']; ?>'>
-                            View Full Details</a>
-                            
-                            <a class="dropdown-item" href="#">Register Client
-                            </a>
-                            
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modaldemo2">Add to Follow Up
-                            </a>
-                            
-                           
-                          </div>
-                        </div>
+                    <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Accept
+                    </button>
+                  
                       </div>
                     </td>
                     

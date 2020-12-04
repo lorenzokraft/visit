@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    $agentname = $_SESSION['username']; 
+    
+
+    include('../DB/connection.php');
+    
+    if(!isset($_SESSION['username'])){ //if login in session is not set
+    header("Location: algbra/dashboard");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,12 +51,18 @@
 
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="../css/bracket.css">
+
+    <script type="text/javascript">
+		$(document).ready( function () {
+		    $('.table').DataTable();
+		} );
+	</script>
   </head>
 
   <body>
 
      <!-- ########## START: LEFT PANEL ########## -->
-     <div class="br-logo"><a href="">
+     <div class="br-logo"><a href="index.php">
       <img src="../img/logo.png" 
       style="  width: 120px;height: 78px;">
     </div>
@@ -701,47 +718,129 @@
           <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Registration Form</h6>
           <p class="mg-b-40 tx-gray-600">Please make sure you fill al the form fields </p>
           <div class=" col-sm-12 row row-sm">
-          <div id="wizard2">
-            <h3>Personal Information</h3>
-            <section>
-              <p>Try the keyboard navigation by clicking arrow left or right!</p>
-              <div class=" col-sm-10 row row-sm">
-              <div class=" col-sm-5 row row-sm">
-              <div class="form-group wd-xs-300">
-                <label class="form-control-label">Firstname: <span class="tx-danger">*</span></label>
-                <input id="firstname" class="form-control" name="firstname" placeholder="Enter firstname" type="text" required>
-              </div><!-- form-group -->
-
-              <div class="form-group wd-xs-300">
-                <label class="form-control-label">Firstname: <span class="tx-danger">*</span></label>
-                <input id="firstname" class="form-control" name="firstname" placeholder="Enter firstname" type="text" required>
-              </div><!-- form-group -->
-              </div>
-              </div>
-
-
-              <div class="form-group wd-xs-300">
-                <label class="form-control-label">Lastname: <span class="tx-danger">*</span></label>
-                <input id="lastname" class="form-control" name="lastname" placeholder="Enter lastname" type="text" required>
-              </div><!-- form-group -->
-            </section>
-
-
-            <h3>Billing Information</h3>
-            <section>
-              <p>Wonderful transition effects.</p>
-              <div class="form-group wd-xs-300">
-                <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
-                <input id="email" class="form-control" name="email" placeholder="Enter email address" type="email" required>
-              </div><!-- form-group -->
-            </section>
-
-            <h3>Payment Details</h3>
-            <section>
-              <p>The next and previous buttons help you to navigate through your content.</p>
-            </section>
+         <!-- Alert -->
+          <div class="alert alert-success alert-dismissible" style="display: none; border-radius: 15px; text-align:center;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> Form Submitted successfully. Please hand over the tab to the 
+            receptionist, she will walk you to consultant .
           </div>
-      </div>
+            <div class="alert alert-danger alert-dismissible" style="display: none;">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Error!</strong> Error in form submition.
+            </div>
+    <!-- END ALert -->
+          
+         
+                  <?php 
+                  
+                  $qry = "SELECT * from cus_details WHERE ID=".$_GET['id']."";
+                          $run = $con -> query($qry);
+                          if($run -> num_rows > 0){
+                          $row = $run -> fetch_assoc();
+                              $first_name = $row['FirstName'];
+                              $sur_name = $row['Surname'];
+                              $name = $first_name . ' ' . $sur_name;
+                              // FirstName + Surname COnc
+                              $email = $row['Email'];
+                              $phone = $row['MobileNumber'];
+                              $whatsapp = $row['WhatsApp'];
+                              $nationality = $row['Nationality'];
+                              
+                              $Hear = $row['Hear'];
+                              // $notes = $row['Notes'];
+                              $agent = $row['AgentName'];
+                              $time = $row['Time'];
+                          }
+                  ?>
+                  <form action="register-client.php" method="POST" enctype="multipart/form-data" style="width:100%">
+                        <div class="input-group">
+                        <span class="input-group-addon" style="width:118px;">Client Name </span>
+                        <input id="FirstName" type="text" class="form-control" name="first_name" value="<?php echo $name ?> ">
+                      </div>
+                       
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Client Email </span>
+                        <input id="Email" type="email" class="form-control" name="email" value="<?php echo $email ?> ">
+                      </div>
+                      
+
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Phone Number </span>
+                        <input id="MobileNumber" type="text" class="form-control" name="Phone_Number" value="<?php echo $phone ?> ">
+                      </div>
+                      
+
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">WhatsApp </span>
+                        <input id="WhatsApp" type="text" class="form-control" name="WhatsApp" value="<?php echo $whatsapp ?> ">
+                      </div>
+                      
+                      
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Nationality </span>
+                        <input id="Nationality" type="text" class="form-control" name="Nationality" value="<?php echo $nationality ?> ">
+                      </div>
+                      
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Visit Date </span>
+                        <input id="Time" type="text" class="form-control" name="Time" value="<?php echo $time ?> ">
+                      </div>
+
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Reference  </span>
+                        <input id="Hear" type="text" class="form-control" name="Hear" value="<?php echo $Hear ?> "readonly>
+                      </div>
+
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Agent Name </span>
+                        <input id="AgentName" type="text" class="form-control" name="AgentName" value="<?php echo $agentname ?>"readonly>
+                      </div>
+                      
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Emirate ID No</span>
+                        <input class="form-control" id="emirateID"type="text" name="emirateIDNo" placeholder=" Emirate ID Number">
+                      </div>
+
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">UAE Address</span>
+                        <input class="form-control" id="Address"type="text" name="Address" placeholder=" UAE Address">
+                      </div>
+
+                      <div class="input-group" style="margin-top:10px;">
+                        <span class="input-group-addon" style="width:118px;">Project ID</span>
+                        <input class="form-control" id="projectID"type="text" name="projectID" placeholder=" Project ID">
+                      </div>
+
+                          
+                    <div class="col-lg-12"
+                    style="margin-top:10px;">
+
+                    <div class="form-group">
+                        <label><strong>SELECT PROJECT</strong></label>
+                        </div>
+                        <input type="checkbox" name="10DAYS" value="10DAYS" required> 
+                        10 DAYS PROJECT
+                        <input type="checkbox" name="15DAYS" value="15DAYS"> 15 DAYS PROJECT 
+                      </div>
+                      
+                          
+                    <div class="col-lg-12"
+                    style="margin-top:30px;">
+                        
+                      <div class="form-group">
+                       <label><strong>REMARKS</strong></label>
+                        <textarea rows="5" cols="50" class="form-control" name="Notes" placeholder="Please leave your remarks here  " required>
+                        </textarea>
+                      </div>
+                    </div>
+
+                      <div class="col-lg-12">
+                        <br>
+                        <button class="btn btn-secondary active"type="submit" name="submit" style="width:100%">R E G I S T E R
+                        </button>
+                      </div>
+              </form>   
+           </div>
         </div><!-- br-section-wrapper -->
       </div><!-- br-pagebody -->
      
@@ -774,90 +873,68 @@
     <script src="../lib/parsleyjs/parsley.js"></script>
 
     <script src="../js/bracket.js"></script>
-    <script>
-      $(document).ready(function(){
-        'use strict';
 
-        $('#wizard1').steps({
-          headerTag: 'h3',
-          bodyTag: 'section',
-          autoFocus: true,
-          titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>'
-        });
-
-        $('#wizard2').steps({
-          headerTag: 'h3',
-          bodyTag: 'section',
-          autoFocus: true,
-          titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>',
-          onStepChanging: function (event, currentIndex, newIndex) {
-            if(currentIndex < newIndex) {
-              // Step 1 form validation
-              if(currentIndex === 0) {
-                var fname = $('#firstname').parsley();
-                var lname = $('#lastname').parsley();
-
-                if(fname.isValid() && lname.isValid()) {
-                  return true;
-                } else {
-                  fname.validate();
-                  lname.validate();
-                }
-              }
-
-              // Step 2 form validation
-              if(currentIndex === 1) {
-                var email = $('#email').parsley();
-                if(email.isValid()) {
-                  return true;
-                } else { email.validate(); }
-              }
-            // Always allow step back to the previous step even if the current step is not valid.
-            } else { return true; }
-          }
-        });
-
-        $('#wizard3').steps({
-          headerTag: 'h3',
-          bodyTag: 'section',
-          autoFocus: true,
-          titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>',
-          stepsOrientation: 1
-        });
-
-        $('#wizard4').steps({
-          headerTag: 'h3',
-          bodyTag: 'section',
-          autoFocus: true,
-          titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>',
-          cssClass: 'wizard step-equal-width'
-        });
-
-        $('#wizard5').steps({
-          headerTag: 'h3',
-          bodyTag: 'section',
-          autoFocus: true,
-          titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>',
-          cssClass: 'wizard wizard-style-1'
-        });
-
-        $('#wizard6').steps({
-          headerTag: 'h3',
-          bodyTag: 'section',
-          autoFocus: true,
-          titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>',
-          cssClass: 'wizard wizard-style-2'
-        });
-
-        $('#wizard7').steps({
-          headerTag: 'h3',
-          bodyTag: 'section',
-          autoFocus: true,
-          titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>',
-          cssClass: 'wizard wizard-style-3'
-        });
-
-      });
-    </script>
   </body>
 </html>
+
+<?php 
+
+if(isset($_POST['submit'])) {
+  $_SESSION['last_insert_id']=$id;
+    $first_name = $_POST['first_name'];
+    $email = $_POST['email'];
+    $Phone_Number = $_POST['Phone_Number'];
+    $whatsapp = $_POST['WhatsApp'];
+    $nationality = $_POST['Nationality'];
+    $Hear = $_POST['Hear'];
+    $emirateIDNo = $_POST['emirateIDNo'];
+    $agentname = $_POST['AgentName'];
+    $Address = $_POST['Address'];
+    $projectID = $_POST['projectID'];
+    $Notes = $_POST['Notes']; 
+  
+    
+    
+    $qry = "INSERT into Cus_Reg (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, EmirateIDNo, AgentName, ProAmt, Remarks, ProjectID, Address, Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$emirateIDNo', '$agentname','','$Notes','$projectID', '$Address', now())";
+    
+   
+  if(mysqli_query($con, $qry)) {
+      $id=mysqli_insert_id($con);
+  
+  //header('Location: register_details.php');
+  
+  if (isset($_POST['submit'])) {
+  $_SESSION['last_insert_id']=$id;
+  echo '
+          <script>
+             window.location.href= "http://localhost/algbra/EditableInvoice/index.php";
+          </script>
+      ';       
+  }else {
+  
+  /*echo '
+          <script>
+             window.location.href= "register.php";
+          </script>
+      ';*/
+      echo '
+          <script>
+              $(".alert-success").css("display","block");
+          </script>
+      ';        
+  }	
+  
+
+  }else {
+      echo mysqli_error($con);
+      echo '
+          <script>
+              $(".alert-danger").css("display","block");
+          </script>
+      ';
+  }
+}	
+
+
+
+?>

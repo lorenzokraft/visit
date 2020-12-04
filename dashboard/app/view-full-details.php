@@ -1,8 +1,13 @@
-<?php 
-  session_start();
-  include('../DB/connection.php'); 
-?>
+<?php
+    session_start();
+    //$agentname = $_SESSION['username']; 
 
+    include('../DB/connection.php');
+    
+    if(!isset($_SESSION['username'])){ //if login in session is not set
+    header("Location: http://localhost/algbra/dashboard/");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,7 +61,7 @@
   <body>
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="br-logo"><a href="">
+    <div class="br-logo"><a href="index.php">
       <img src="../img/logo.png" 
       style="  width: 120px;height: 78px;">
     </div>
@@ -163,7 +168,7 @@
                
                     </div><!-- d-flex -->      
 
-                     <table class="table table-valign-middle mg-b-0">
+          <table class="table table-valign-middle mg-b-0">
                   
 						<?php 
 						
@@ -182,7 +187,8 @@
 					  						$visaDays = $row['VisaReq'];
 					  						$visaChange = $row['VisaChangeReq'];
 					  						$visaGlobal = $row['GlobalVisa'];
-					  						$notes = $row['Notes'];
+                        // $notes = $row['Notes'];
+                        $Hear = $row['Hear'];
 					  						$agent = $row['AgentName'];
 					  						$time = $row['Time'];
 					  				}
@@ -192,12 +198,12 @@
 					  			<tr class="table table-valign-middle mg-b-0">
 					  				<th>CLient Name</th>
 									<td><?php echo $name; ?></td>
-								</tr>
-								<tr>
-					  				<th>Client Email</th>
-									<td><?php echo $email; ?></td>
-								</tr>
-								<tr class="table table-valign-middle mg-b-0">
+								  </tr>
+                  <tr>
+                      <th>Client Email</th>
+                    <td><?php echo $email; ?></td>
+                  </tr>
+								  <tr class="table table-valign-middle mg-b-0">
 					  				<th>Phone Number</th>
 									<td><?php echo $phone; ?></td>
                                 </tr>
@@ -218,7 +224,7 @@
 								
 								<tr class="table table-valign-middle mg-b-0">
 									<th>Referal</th>
-									<td><?php echo $notes; ?></td>
+									<td><?php echo $Hear; ?></td>
 								</tr>
 								<tr>
 									<th>Activity</th>
@@ -244,7 +250,7 @@
 					  			</tr>
 					  			
 					  		</tbody>
-					  	</table>
+					  </table>
 					  	<br>
                           
                           
@@ -262,22 +268,100 @@
           <div class="col-4">
             <button class="btn btn-primary pd-y-12 btn-block" style="color: #fff!important;
                     background-color: #858e96!important;
-                    border-color: #1d2939!important;">Register Client
+                    border-color: #1d2939!important;">
+                    <a href="register-client.php?id=<?php echo $row['ID']; ?>">Register Client</a>
                 </button>
-
+<br>
                 <button class="btn btn-primary pd-y-12 btn-block" style="color: #fff!important;
                     background-color: #858e96!important;
-                    border-color: #1d2939!important;">Add To Follow Up Client
+                    border-color: #1d2939!important;">
+                    <a href="#" data-toggle="modal" data-target="#modaldemo2">Add To Follow Up </a>
                 </button>
-
+<br>
                 <button class="btn btn-primary pd-y-12 btn-block" style="color: #fff!important;
                     background-color: #858e96!important;
-                    border-color: #1d2939!important;">Go Back
+                    border-color: #1d2939!important;">
+                    <a href="index.php">Go Back </a>
                 </button>
+
+                <!-- Follow Up MODAL -->
+            <div id="modaldemo2" class="modal fade">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content tx-size-sm">
+                  <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20">HEY, Why are you not <br>converting this client?</h4>
+                    <p class="mg-b-5" style="font-size: 16px!important;
+                    color: #0f151d;
+                    padding: 10px;
+                    font-family: 'Roboto';">REMEMBER, You should always spend at least 15 Minutes with a client to explain the project to them in details. </p>
+                    <br>
+                    <button type="button" data-toggle="modal" data-target="#Modalthink"  class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">They are not interested
+                      
+                      </button>
+
+                      <button data-toggle="modal" data-target="#modaldemo4"class="btn btn-primary tx-11 active pd-y-12 pd-x-25 tx-mont tx-medium">
+                      THEY WANT TO THINK ABOUT IT
+                      </button>
+
+
+                    </div><!-- modal-body -->
+                  </div><!-- modal-content -->
+                </div><!-- modal-dialog -->
+              </div>
+              
+          <!-- Think about it Modal -->
+           <div id="Modalthink" class="modal fade">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="window.location = 'index.php';">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                  <h4 class="tx-success tx-semibold mg-b-20"> Thank you :(</h4>
+                  <p class="mg-b-20 mg-x-20">Your descission has been recorder. <br>
+                  
+                  </p>
+                  
+                  <button type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close" onclick="window.location = 'index.php';">
+                    Continue</button>
+                  </div><!-- modal-body -->
+                </div><!-- modal-content -->
+              </div><!-- modal-dialog -->
+          </div><!-- ENd modal -->
+         
+           <!-- Not interested Modal  -->
+           <div id="modaldemo4" class="modal fade">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="window.location = 'index.php';">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                  <h4 class="tx-success tx-semibold mg-b-20">Awesome!!</h4>
+                  <p class="mg-b-20 mg-x-20">Thank you, the client has been added to the follow up list Successfully. you will get an automated reminder to contact the client again after 7 days.</p>
+                  
+                  <button type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close" onclick="window.location = 'index.php';">
+                    Okay</button>
+                  </div><!-- modal-body -->
+                </div><!-- modal-content -->
+              </div><!-- modal-dialog -->
+          </div><!-- modal -->
           </div>
         </div><!-- br-pagebody -->
       <br>
       <br>
+      <!-- MODALS  -->
+
+        
+      
+
+               
         <p style="text-align:center; margin-top:10px;">Copyright &copy; 
               2020. Instaweb Technologies LLC.
         </p>
