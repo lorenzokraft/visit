@@ -26,7 +26,8 @@ $id=$_SESSION['last_insert_id'];
 			$notes=$row['Remarks'];
 			$agentname=$row['AgentName'];
 			$time=$row['Time'];
-			$awt_amount=$row['awt_amount'];
+			
+			$ProAmt =$row['ProAmt'];
 		}
 ?>
 
@@ -100,7 +101,7 @@ $id=$_SESSION['last_insert_id'];
             <table id="meta">
                 <tr>
                     <td class="meta-head">Invoice #</td>
-                    <td><textarea><?php echo $id; ?></textarea></td>
+                    <td><textarea>00<?php echo $id; ?></textarea></td>
                 </tr>
                 <tr>
                     <td class="meta-head">Date</td>
@@ -119,11 +120,10 @@ $id=$_SESSION['last_insert_id'];
 		
 		  <tr>
 		      <th> Nationality</th>
-		      <th>Visa Req</th>
-		      <th>VisaChangeReq</th>
-		      <th>globalVisa</th>
+		      
+		      
 			  
-			  <th>Notes</th>	
+			  <th>Amount</th>	
 		  </tr>
 		  
 
@@ -133,7 +133,7 @@ $id=$_SESSION['last_insert_id'];
 		      <td><?php echo $visaChangeReq; ?></td>
 		      <td><?php echo $globalVisa; ?></td>
 		      
-			    <td><span class="price"><?php echo $notes; ?></span></td>
+			    <td><span class="price"><?php echo $ProAmt; ?></span></td>
 		  </tr>
 		
 		  
@@ -142,7 +142,7 @@ $id=$_SESSION['last_insert_id'];
 
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Total Amount</td>
-		      <td class="total-value"><div id="total"><?php echo $awt_amount; ?></div></td>
+		      <td class="total-value"><div id="total"><?php echo $ProAmt; ?></div></td>
 		  </tr>
 		
 		

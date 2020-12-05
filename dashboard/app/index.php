@@ -83,14 +83,9 @@
             <span class="menu-item-label">Dashboard</span>
           </div><!-- menu-item -->
 
-        </a><!-- br-menu-link -->
-        <!-- <a href="mailbox.html" class="br-menu-link">
-          <div class="br-menu-item">
-            <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
-            <span class="menu-item-label">Mailbox</span>
-          </div><!-- menu-item -->
         </a>
-        <a href="card-dashboard.html" class="br-menu-link">
+        </a>
+        <a href="view-all-reg.php" class="br-menu-link">
           <div class="br-menu-item">
             <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
             <span class="menu-item-label">View all Registration </span>
@@ -125,7 +120,7 @@
         </ul>
        
     
-        <a href="layouts.html" class="br-menu-link">
+        <a href="#" class="br-menu-link">
           <div class="br-menu-item">
           
             <i class="menu-item-icon icon ion-power tx-22"></i>
@@ -618,12 +613,6 @@
         </nav> -->
       </div><!-- br-pageheader -->
 
-
-      <!-- welcome User -->
-     <!--  <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
-        <h4 class="tx-gray-800 mg-b-5">Blank Page (Default Layout)</h4>
-        <p class="mg-b-0">Introducing Bracket admin template, the most handsome admin template of all time.</p>
-      </div> -->
     
       <div class="br-pagebody">
 
@@ -705,9 +694,9 @@
               <div class="d-flex align-items-center justify-content-between mg-b-30">
                 <div>
                   <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Top 10 Consultations</h6>
-                  <p class="mg-b-0"><i class="icon ion-calendar mg-r-5"></i> Month of November  2020</p>
+                  <p class="mg-b-0"><i class="icon ion-calendar mg-r-5"></i> Month of December  2020</p>
                 </div>
-                <a href="" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">See All</a>
+                <a href="view-all-reg.php" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">See All</a>
               </div><!-- d-flex -->
             <table class="table table-valign-middle mg-b-0">
                 <tbody>

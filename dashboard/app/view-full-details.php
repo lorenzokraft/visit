@@ -183,14 +183,12 @@
 					  						$phone = $row['MobileNumber'];
 					  						$whatsapp = $row['WhatsApp'];
 					  						$nationality = $row['Nationality'];
-					  						$services = $row['VisaType'];
-					  						$visaDays = $row['VisaReq'];
-					  						$visaChange = $row['VisaChangeReq'];
-					  						$visaGlobal = $row['GlobalVisa'];
+					  					
                         // $notes = $row['Notes'];
                         $Hear = $row['Hear'];
 					  						$agent = $row['AgentName'];
-					  						$time = $row['Time'];
+                        $time = $row['Time'];
+                        $referalAgent = $row['referalAgent'];
 					  				}
 						?>
 					  	    <!-- <caption style='font-size:14px;font-weight:bold;'>Enquries Records</caption> -->
@@ -223,12 +221,12 @@
 								</tr>
 								
 								<tr class="table table-valign-middle mg-b-0">
-									<th>Referal</th>
+									<th>Where did you hear </th>
 									<td><?php echo $Hear; ?></td>
 								</tr>
 								<tr>
-									<th>Activity</th>
-									<td>Enquiry</td>
+									<th>Refered Agent</th>
+									<td><?php echo $referalAgent; ?></td>
 								</tr>
 					  		</thead>
 					  		<tbody>

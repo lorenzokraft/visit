@@ -118,7 +118,7 @@
         </ul>
        
     
-        <a href="layouts.html" class="br-menu-link">
+        <a href="#" class="br-menu-link">
           <div class="br-menu-item">
           
             <i class="menu-item-icon icon ion-power tx-22"></i>
@@ -729,120 +729,61 @@
               <strong>Error!</strong> Error in form submition.
             </div>
     <!-- END ALert -->
-          
-         
+    <table class="table table-valign-middle mg-b-0">
+                <tbody>
                   <?php 
-                  
-                  $qry = "SELECT * from cus_details WHERE ID=".$_GET['id']."";
-                          $run = $con -> query($qry);
-                          if($run -> num_rows > 0){
-                          $row = $run -> fetch_assoc();
-                              $first_name = $row['FirstName'];
-                              $sur_name = $row['Surname'];
-                              $name = $first_name . ' ' . $sur_name;
-                              // FirstName + Surname COnc
-                              $email = $row['Email'];
-                              $phone = $row['MobileNumber'];
-                              $whatsapp = $row['WhatsApp'];
-                              $nationality = $row['Nationality'];
-                              $Hear = $row['Hear'];
-                              // $notes = $row['Notes'];
-                              $agent = $row['AgentName'];
-                              $time = $row['Time'];
-                              $referalAgent = $row['referalAgent'];
-                          }
-                  ?>
-                  <form action="register-client.php" method="POST" enctype="multipart/form-data" style="width:100%">
-                        <div class="input-group">
-                        <span class="input-group-addon" style="width:118px;">Client Name </span>
-                        <input id="FirstName" type="text" class="form-control" name="first_name" value="<?php echo $name ?> ">
-                      </div>
-                       
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Client Email </span>
-                        <input id="Email" type="email" class="form-control" name="email" value="<?php echo $email ?> ">
-                      </div>
-                      
-
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Phone Number </span>
-                        <input id="MobileNumber" type="text" class="form-control" name="Phone_Number" value="<?php echo $phone ?> ">
-                      </div>
-                      
-
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">WhatsApp </span>
-                        <input id="WhatsApp" type="text" class="form-control" name="WhatsApp" value="<?php echo $whatsapp ?> ">
-                      </div>
-                      
-                      
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Nationality </span>
-                        <input id="Nationality" type="text" class="form-control" name="Nationality" value="<?php echo $nationality ?> ">
-                      </div>
-                      
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Visit Date </span>
-                        <input id="Time" type="text" class="form-control" name="Time" value="<?php echo $time ?> ">
-                      </div>
-
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Reference  </span>
-                        <input id="Hear" type="text" class="form-control" name="Hear" value="<?php echo $Hear ?> "readonly>
-                      </div>
-
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Refered By </span>
-                        <input id="AgentName" type="text" class="form-control" name="AgentName" value="<?php echo $referalAgent ?>"readonly>
-                      </div>
-                      
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Emirate ID No</span>
-                        <input class="form-control" id="emirateID"type="text" name="emirateIDNo" placeholder=" Emirate ID Number">
-                      </div>
-
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">UAE Address</span>
-                        <input class="form-control" id="Address"type="text" name="Address" placeholder=" UAE Address">
-                      </div>
-
-                      <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Project ID</span>
-                        <input class="form-control" id="projectID"type="text" name="projectID" placeholder=" Project ID">
-                      </div>
-
-                          
-                <div class="form-group">
-        <div class="form-group">
-            <label>Select Project </label>
-
-            <select id="ProAmt" name="ProAmt" style="width:100%;
-            height: 40px;"> 
-            <option value=" ">Click here to Select</option>
-            <option value="AED 450">10 Days Project</option>
-            <option value="AED 950">15 Days Project </option>
-            
-            </select>
-        </div>
-    </div>
-                      
-                          
-                    <div class="col-lg-12"
-                    style="margin-top:30px;">
+                    $qry = "SELECT * from cus_details ORDER by ID DESC LIMIT 10";
+                    $run = $con -> query($qry);
+                    if($run -> num_rows > 0){
+                      while($row = $run -> fetch_assoc()) {
+                        $sid = $row['ID'];
+                        $first_name = $row['FirstName'];
+                        $sur_name = $row['Surname'];
+                        $name = $first_name . ' ' . $sur_name;
+                        $email = $row['Email'];
+                        $phone = $row['MobileNumber'];
                         
-                      <div class="form-group">
-                       <label><strong>REMARKS</strong></label>
-                        <textarea rows="5" cols="50" class="form-control" name="Notes" placeholder="Please leave your remarks here  " required>
-                        </textarea>
+                        $nationality = $row['Nationality'];
+                        $services = $row['VisaType'];
+                        $visaDays = $row['VisaReq'];
+                        $visaChange = $row['VisaChangeReq'];
+                        $visaGlobal = $row['GlobalVisa'];
+                        $notes = $row['Notes'];
+                        $agent = $row['AgentName'];
+                        $time = $row['Time'];
+                       
+                      
+                  ?>
+                  <tr>
+                      <td><?php echo $sid; ?></td>
+                    <td><?php echo $name; ?></td>
+                    <!-- <td><?php //echo $email; ?></td> -->
+                    <!-- <td><?php echo $phone; ?></td> -->
+                  
+                    <!-- <td><?php //echo $nationality; ?></td> -->
+                  
+                   <!--  <td><?php //echo $visaDays; ?></td>
+                    <td><?php //echo $visaChange; ?></td>
+                    <td><?php //echo $visaGlobal; ?></td> -->
+                    <!--td><?php //echo $notes; ?></td-->
+                    <!--td><?php //echo $agent; ?></td-->
+                    <td><?php echo $time; ?></td>
+                    <td>
+                    <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Accept
+                    </button>
+                  
                       </div>
-                    </div>
-
-                      <div class="col-lg-12">
-                        <br>
-                        <button class="btn btn-secondary active"type="submit" name="submit" style="width:100%">R E G I S T E R
-                        </button>
-                      </div>
-              </form>   
+                    </td>
+                    
+                  </tr>
+                  <?php
+                      }
+                    }
+                  ?>
+                </tbody>
+              </table>
+         
+                 
            </div>
         </div><!-- br-section-wrapper -->
       </div><!-- br-pagebody -->
