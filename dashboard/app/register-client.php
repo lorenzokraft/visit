@@ -806,10 +806,10 @@
                         <input class="form-control" id="Address"type="text" name="Address" placeholder=" UAE Address">
                       </div>
 
-                      <div class="input-group" style="margin-top:10px;">
+                      <!-- <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Project ID</span>
                         <input class="form-control" id="projectID"type="text" name="projectID" placeholder=" Project ID">
-                      </div>
+                      </div> -->
 
                           
                 <div class="form-group">
@@ -893,14 +893,13 @@ if(isset($_POST['submit'])) {
     $emirateIDNo = $_POST['emirateIDNo'];
     $agentname = $_POST['AgentName'];
     $Address = $_POST['Address'];
-    $projectID = $_POST['projectID'];
     $Notes = $_POST['Notes']; 
     $ProAmt =$_POST['ProAmt'];
 
   
     
     
-    $qry = "INSERT into Cus_Reg (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, EmirateIDNo, AgentName,ProAmt, Remarks, ProjectID, Address, Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$emirateIDNo', '$agentname','$ProAmt','$Notes','$projectID', '$Address', now())";
+    $qry = "INSERT into Cus_Reg (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, EmirateIDNo, AgentName,ProAmt, Remarks, Address, Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$emirateIDNo', '$agentname','$ProAmt','$Notes','$Address', now())";
     
    
   if(mysqli_query($con, $qry)) {
