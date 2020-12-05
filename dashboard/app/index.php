@@ -135,10 +135,10 @@
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
 
-          <li class="nav-item"><a href="navigation.html" class="nav-link">Create New Account</a>
+          <li class="nav-item"><a href="create-account.php" class="nav-link">Create New Account</a>
           </li>
 
-          <li class="nav-item"><a href="navigation.html"  class="nav-link">View All Accounts</a>
+          <li class="nav-item"><a href="#"  class="nav-link">View All Accounts</a>
           </li>
         </ul>
 
