@@ -119,14 +119,38 @@
           <li class="nav-item"><a href="#" class="nav-link">Payment Complains  </a></li>
         </ul>
        
-    
-        <a href="#" class="br-menu-link">
+        <a href="card-dashboard.html" class="br-menu-link">
           <div class="br-menu-item">
-          
-            <i class="menu-item-icon icon ion-power tx-22"></i>
-            <span class="menu-item-label">Logout</span>
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label"> View Compalins  </span>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+
+        <a href="#" class="br-menu-link">
+          <div class="br-menu-item">
+            <i class="menu-item-icon icon ion-ios-list-outline tx-22"></i>
+            <span class="menu-item-label">Accounts  </span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub nav flex-column">
+
+          <li class="nav-item"><a href="navigation.html" class="nav-link">Create New Account</a>
+          </li>
+
+          <li class="nav-item"><a href="navigation.html"  class="nav-link">View All Accounts</a>
+          </li>
+        </ul>
+
+          <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+            
+              <i class="menu-item-icon icon ion-power tx-22"></i>
+              <span class="menu-item-label">Logout</span>
+            </div><!-- menu-item -->
+          </a><!-- br-menu-link -->
+          
+       
 
 
       </div><!-- br-sideleft-menu -->
@@ -640,7 +664,7 @@
 
 
           <div class="col-sm-4 col-xl-3 mg-t-20 mg-sm-t-0">
-            <div class="bg-danger rounded overflow-hidden">
+            <div class="bg-danger rounded overflow-hidden" >
               <div class="pd-25 d-flex align-items-center">
                 
                 <i class="ion ion-monitor tx-60 lh-0 tx-white op-7"></i>
@@ -656,14 +680,14 @@
           </div>
           <!-- col-3 -->
 
-          <div class="col-sm-4 col-xl-3 mg-t-20 mg-xl-t-0" style="    margin-bottom: 30px;!Important; margin-top: 0px!Important">
-            <div class="bg-primary rounded overflow-hidden">
+          <div class="col-sm-4 col-xl-3 mg-t-20 mg-xl-t-0" style="margin-bottom: 30px;!Important; margin-top: 0px!Important; ">
+            <div class="bg-primary rounded overflow-hidden" style="background-image: linear-gradient(180deg, #0e1aab, #ca2626); border-radius:15px!Important;">
               <div class="pd-25 d-flex align-items-center">
                <i class="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
                 <div class="mg-l-20">
                 <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total  <br>sales<br> this Month</p>
                   <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">
-                    <span class="small">AED</span> 12,500
+                    <span class="small">AED</span><br> 12,500
                       <span style="font-size: 20px; color: #0766c6;">. </span>
                   </p>
                 </div>
