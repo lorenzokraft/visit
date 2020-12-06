@@ -1,8 +1,8 @@
 <?php  
 
-$con = mysqli_connect('localhost', 'root', 'root', 'data_entry');
+$con = mysqli_connect('localhost', 'root', 'secret', 'data_entry');
 if(!$con) {
-	die('Error in db connection . '. mysqli_error($con));
+	die('Error in db connection .'. mysqli_error($con));
 }
 
 
