@@ -301,14 +301,22 @@
 
 if(isset($_POST['submit'])) {
 
-    $sql_query = "SELECT ID FROM cus_details WHERE ID=".$_GET['id']." AND (Status <> 'Pending' OR Status != '' )";
-    if(mysqli_num_rows(mysqli_query($con, $sql_query)) > 0) {
-        $id = $_GET['id'];
-        echo "<script>
-            alert('This registration has already been updated by another user!');
-             window.location.href= 'view-full-details.php?id=$id';
-        </script>";
-        exit;
+    $sql_query = "SELECT * FROM cus_details WHERE ID = ".$_GET['id'];
+
+    $run = $con->query($qry);
+    if($run -> num_rows > 0) {
+        $row = $run->fetch_assoc();
+        $result = mysqli_query($con, $sql_query);
+        $row = mysqli_fetch_array($result);
+        if ($row["Status"] !="" && $row["Status"] != "Pending") {
+            $id = $_GET['id'];
+
+            echo "<script>
+                    alert('This registration has already been updated by another user!');
+                     window.location.href= 'view-full-details.php?id=$id';
+                </script>";
+            exit;
+        }
     }
 
   $_SESSION['last_insert_id']=$id;
