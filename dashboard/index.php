@@ -119,14 +119,13 @@ if(isset($_POST['but_submit'])){
 
     if ($uname != "" && $password != ""){
 
-        $sql_query = "select count(*) as cntUser from agent where Username='".$uname."' and Password='".$password."'";
+        $sql_query = "SELECT ID,Username, Role FROM agent WHERE Username='".$uname."' AND Password='".$password."'";
         $result = mysqli_query($con,$sql_query);
-        $row = mysqli_fetch_array($result);
-
-        $count = $row['cntUser'];
-
-        if($count > 0){
+        $row = mysqli_fetch_assoc($result);
+        if($row){
             $_SESSION['username'] = $uname;
+            $_SESSION['user_role'] = $row["Role"];
+            $_SESSION['user_id'] = $row["ID"];
             header('Location: app/index.php');
         }else{
             header('Location: index.php?tag=error');

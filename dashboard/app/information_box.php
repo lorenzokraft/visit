@@ -26,11 +26,11 @@ $totAgentCount=mysqli_num_rows($totAgentR);
     <i class="icon-6x icon-calendar"></i>
     <div class="pull-right text-right">
          Enquires This Month<br>
-<?php 
-$totEnqCurrMonQry="SELECT ID FROM cus_details WHERE MONTH(Time) = MONTH(CURRENT_DATE()) AND YEAR(Time) = YEAR(CURRENT_DATE())";
-$totEnqCurrMonR=mysqli_query($con,$totEnqCurrMonQry);
-$totEnqCurrMonCount=mysqli_num_rows($totEnqCurrMonR);
-?>
+        <?php
+        $totEnqCurrMonQry="SELECT ID FROM cus_details WHERE MONTH(Time) = MONTH(CURRENT_DATE()) AND YEAR(Time) = YEAR(CURRENT_DATE())";
+        $totEnqCurrMonR=mysqli_query($con,$totEnqCurrMonQry);
+        $totEnqCurrMonCount=mysqli_num_rows($totEnqCurrMonR);
+        ?>
         <!-- <b class="huge"><?php echo $totEnqCurrMonCount; ?></b><br> -->
         <span class="caps muted"></span>
         <!--a href='viewAgentList.php'>View All Agent Details</a-->

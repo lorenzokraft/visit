@@ -133,7 +133,7 @@ $id=$_SESSION['last_insert_id'];
 			
             <tr>
               <td colspan="4" class="bg-light-2 text-right"><strong>Sub Total:</strong></td>
-              <td class="bg-light-2 text-right">$2150.00</td>
+              <td class="bg-light-2 text-right"><?php echo $ProAmt; ?></td>
             </tr>
            
             <tr>
