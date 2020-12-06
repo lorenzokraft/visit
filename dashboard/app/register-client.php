@@ -797,7 +797,7 @@
                       </div>
                       
                       <div class="input-group" style="margin-top:10px;">
-                        <span class="input-group-addon" style="width:118px;">Emirate ID No</span>
+                        <span class="input-group-addon" style="width:118px;">Emirate ID/ Passport</span>
                         <input class="form-control" id="emirateID"type="text" name="emirateIDNo" placeholder=" Emirate ID Number">
                       </div>
 

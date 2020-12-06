@@ -241,17 +241,36 @@
                   <div class="form-group">
                   <form action="view-full-details.php" method="POST" enctype="multipart/form-data">
 
-                    <textarea name="ffupcomment"rows="3" class="form-control" placeholder="Leave some comment about the client response HERE" required>
+                    <textarea name="ffupcomment"rows="3" class="form-control" placeholder="Leave some comment about the client response HERE" required></textarea>
 
-                    </textarea>
+                    <input id="AgentName" type="hidden" class="form-control" name="AgentName" value="<?php echo $agentname ?>">
+
+                    <input id="Hear" type="hidden" class="form-control" name="Hear" value="<?php echo $Hear ?>">
+
+                    <input id="Hear" type="hidden" class="form-control" name="Nationality" value="<?php echo $nationality ?>">
+
+                    <input id="Hear" type="hidden" class="form-control" name="Whatsapp" value="<?php echo $whatsapp ?>">
+
+                    <input id="Hear" type="hidden" class="form-control" name="Phone_Number" value="<?php echo $phone ?>">
+
+                    <input id="Hear" type="hidden" class="form-control" name="email" value="<?php echo $email ?>">
+
+                    <input id="Hear" type="hidden" class="form-control" name="first_name" value="<?php echo $first_name ?>">
+
+                    <input id="Hear" type="hidden" class="form-control" name="first_name" value="<?php echo $name ?>">
+
+                  </div>
+
                       <br>
                       <button type="submit"name="submit"class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
                     Submit</button>
 
                   </form>
                    </div><!-- form-group -->
-                                
-                
+           
+               
+   
+ 
                 
                   </div><!-- modal-body -->
                 </div><!-- modal-content -->
@@ -285,7 +304,7 @@ if(isset($_POST['submit'])) {
     $ffupcomment = $_POST ['ffupcomment'];
 
 
-    $qry = "INSERT into followup (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, AgentName,ffupcomment,Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', 'BRAZIL', '$Hear', '$agentname','$ffupcomment', now())";
+    $qry = "INSERT into followup (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, AgentName,ffupcomment,Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$agentname','$ffupcomment', now())";
   
     if(mysqli_query($con, $qry)) {
       $id=mysqli_insert_id($con);
@@ -302,6 +321,7 @@ if(isset($_POST['submit'])) {
       ';        
   }	
   
+  header('Location: http://localhost/algbra/dashboard/app/index.php');
 
   }else {
       echo mysqli_error($con);
@@ -312,7 +332,7 @@ if(isset($_POST['submit'])) {
       ';
   }
 }	
-header('Location: register_details.php');
+
 //Last Working Model
 
 ?>

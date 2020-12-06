@@ -48,7 +48,7 @@
         <div class=" col-sm-12 row row-sm">
 
           <div class="col-sm-4 col-xl-3">
-            <div class="bg-teal rounded overflow-hidden">
+            <div class="bg-teal rounded overflow-hidden"style="background-image: url(../img/c1.png); border-radius:15px!Important;">
               <div class="pd-25 d-flex align-items-center">
                 <i class="ion ion-earth tx-60 lh-0 tx-white op-7"></i>
                 <div class="mg-l-20">
@@ -64,7 +64,7 @@
 
 
           <div class="col-sm-4 col-xl-3 mg-t-20 mg-sm-t-0">
-            <div class="bg-danger rounded overflow-hidden" >
+            <div class="bg-danger rounded overflow-hidden" style="background-image: url(../img/c2.png); border-radius:15px!Important;">
               <div class="pd-25 d-flex align-items-center">
                 
                 <i class="ion ion-monitor tx-60 lh-0 tx-white op-7"></i>
@@ -81,6 +81,7 @@
           <!-- col-3 -->
 
           <div class="col-sm-4 col-xl-3 mg-t-20 mg-xl-t-0" style="margin-bottom: 30px;!Important; margin-top: 0px!Important; ">
+            <div class="bg-primary rounded overflow-hidden" style="background-image: url(../img/c3.png); border-radius:15px!Important;">
             <div class="bg-primary rounded overflow-hidden" style="background-image: linear-gradient(180deg, #0e1aab, #ca2626);">
               <div class="pd-25 d-flex align-items-center">
                <i class="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
