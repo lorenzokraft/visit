@@ -210,7 +210,7 @@ if(isset($_POST['submit'])) {
     $Notes = $_POST['Notes']; 
     $ProAmt =$_POST['ProAmt'];
     
-    $qry = "INSERT into Cus_Reg (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, EmirateIDNo, AgentName,ProAmt, Remarks, Address, Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$emirateIDNo', '$agentname','$ProAmt','$Notes','$Address', now())";
+    $qry = "INSERT into Registered_client (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, EmirateIDNo, AgentName,ProAmt, Remarks, Address, Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$emirateIDNo', '$agentname','$ProAmt','$Notes','$Address', now())";
   if(mysqli_query($con, $qry)) {
       $id=mysqli_insert_id($con);
 
