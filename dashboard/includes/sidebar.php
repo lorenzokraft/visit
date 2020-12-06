@@ -27,7 +27,7 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
 
-        <a href="card-dashboard.html" class="br-menu-link">
+        <a href="view-follow-up.php" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
                 <span class="menu-item-label">View all Follow Up </span>

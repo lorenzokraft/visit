@@ -200,12 +200,13 @@
                     padding: 10px;
                     font-family: 'Roboto';">REMEMBER, You should always spend at least 15 Minutes with a client to explain the project to them in details. </p>
                     <br>
-                    <button type="button" data-toggle="modal" data-target="#Modalthink"  class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">They are not interested
+                    <button type="button" data-toggle="modal" data-target="#Modalthink"  class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">HE WANT TO COME TOMMOWOR 
                       
                       </button>
-
+                      <br>
+                      <br>
                       <button data-toggle="modal" data-target="#modaldemo4"class="btn btn-primary tx-11 active pd-y-12 pd-x-25 tx-mont tx-medium">
-                      THEY WANT TO THINK ABOUT IT
+                      HE WANT TO THINK ABOUT IT
                       </button>
 
 

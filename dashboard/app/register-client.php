@@ -152,15 +152,7 @@
                         <textarea rows="5" cols="50" class="form-control" name="Notes" placeholder="Please leave your remarks here  " required></textarea>
                       </div>
                     <div class="row">
-                        <div class="col-lg-12"
-                             style="margin-top:30px;">
-
-                            <div class="form-group">
-                                <label><strong>REMARKS</strong></label>
-                                <textarea required rows="5" cols="50" class="form-control" name="Notes" placeholder="Please leave your remarks here  " required>
-                        </textarea>
-                            </div>
-                        </div>
+                      
 
                         <div class="col-lg-12">
                             <br>
