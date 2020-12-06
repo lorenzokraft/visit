@@ -89,7 +89,7 @@
                     <td><?php //echo $visaChange; ?></td>
                     <td><?php //echo $visaGlobal; ?></td> -->
                     <!--td><?php //echo $notes; ?></td-->
-                      <td><span style="font-size: 12px; padding: 5px;" class="badge <?php echo $status=="Pending"?"badge-info":($status=="Accepted"?"badge-success":"badge-warning") ?>"><?php echo $status ?></span></td>
+                      <td><span style="font-size: 12px; padding: 5px;" class="badge <?php echo $status=="Accepted"?"badge-info":($status=="Accepted"?"badge-success":"badge-warning") ?>"><?php echo $status ?></span></td>
                     <td><?php echo $time; ?></td>
                     <td>
                      <?php if($status=="Pending"){ ?>
