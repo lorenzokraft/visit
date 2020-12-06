@@ -81,14 +81,14 @@
           <!-- col-3 -->
 
           <div class="col-sm-4 col-xl-3 mg-t-20 mg-xl-t-0" style="margin-bottom: 30px;!Important; margin-top: 0px!Important; ">
-            <div class="bg-primary rounded overflow-hidden" style="background-image: linear-gradient(180deg, #0e1aab, #ca2626); border-radius:15px!Important;">
+            <div class="bg-primary rounded overflow-hidden" style="background-image: linear-gradient(180deg, #0e1aab, #ca2626);">
               <div class="pd-25 d-flex align-items-center">
                <i class="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
                 <div class="mg-l-20">
                 <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total  <br>sales<br> this Month</p>
                   <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">
                     <span class="small">AED</span><br> 12,500
-                      <span style="font-size: 20px; color: #0766c6;">. </span>
+
                   </p>
                 </div>
               </div>
