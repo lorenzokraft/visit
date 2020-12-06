@@ -148,7 +148,6 @@
                         $status = $row['Status']?$row['Status']:"Pending";
                   ?>
                   <tr>
-                      <td><?php echo $sid; ?></td>
                     <td><?php echo $name; ?></td>
                     <!-- <td><?php //echo $email; ?></td> -->
                     <!-- <td><?php echo $phone; ?></td> -->
