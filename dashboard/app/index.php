@@ -160,7 +160,7 @@
                       <td><?php echo $time; ?></td>
                     <td>
                         <?php if($status=="Pending"){ ?>
-                            <button class="btn btn-success active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> -t
+                            <button class="btn btn-success active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Accept
                             </button>
                         <?php }else{ ?>
                             <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> View

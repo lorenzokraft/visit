@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1235504-d3bb-4dfa-a078-4ccba7a77912" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dashboard/app/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/app/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/app/register-client.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/app/register-client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/app/view-full-details.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/app/view-full-details.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +18,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashboard/app/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="150" column="49" lean-forward="true" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/app/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="128" column="20" selection-start-line="128" selection-start-column="20" selection-end-line="131" selection-end-column="57" />
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#p#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -71,7 +79,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/app/view-all-reg.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-1320">
+=======
+            <state relative-caret-position="-496">
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
               <caret line="14" selection-start-line="14" selection-end-line="27" selection-end-column="49" />
               <folding>
                 <element signature="e#3889#3927#0#HTML" expanded="true" />
@@ -89,11 +101,19 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/app/view-full-details.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
               <caret line="299" column="5" lean-forward="true" selection-start-line="299" selection-start-column="5" selection-end-line="299" selection-end-column="5" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard/app/view-full-details.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="308" column="49" lean-forward="true" selection-start-line="308" selection-start-column="49" selection-end-line="308" selection-end-column="49" />
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
             </state>
           </provider>
         </entry>
@@ -101,7 +121,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/app/view-all-accounts.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="408">
+=======
+            <state relative-caret-position="-41">
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
               <caret line="95" selection-start-line="95" selection-end-line="95" />
             </state>
           </provider>
@@ -110,8 +134,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/app/register-client.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="315">
               <caret line="190" column="5" lean-forward="true" selection-start-line="190" selection-start-column="5" selection-end-line="190" selection-end-column="5" />
+=======
+            <state relative-caret-position="270">
+              <caret line="198" column="5" lean-forward="true" selection-start-line="182" selection-start-column="3" selection-end-line="198" selection-end-column="5" />
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
               <folding>
                 <element signature="e#38780#38798#0#HTML" expanded="true" />
               </folding>
@@ -158,10 +187,17 @@
         <option value="$PROJECT_DIR$/dashboard/includes/head.php" />
         <option value="$PROJECT_DIR$/dashboard/app/create-account.php" />
         <option value="$PROJECT_DIR$/dashboard/app/view-all-accounts.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/dashboard/app/view-full-details.php" />
         <option value="$PROJECT_DIR$/dashboard/app/view-all-reg.php" />
         <option value="$PROJECT_DIR$/dashboard/app/register-client.php" />
         <option value="$PROJECT_DIR$/dashboard/app/index.php" />
+=======
+        <option value="$PROJECT_DIR$/dashboard/app/view-all-reg.php" />
+        <option value="$PROJECT_DIR$/dashboard/app/index.php" />
+        <option value="$PROJECT_DIR$/dashboard/app/register-client.php" />
+        <option value="$PROJECT_DIR$/dashboard/app/view-full-details.php" />
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
       </list>
     </option>
   </component>
@@ -250,12 +286,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607199580973</updated>
+<<<<<<< HEAD
       <workItem from="1607199583097" duration="14927000" />
+=======
+      <workItem from="1607199583097" duration="17302000" />
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="14927000" />
+=======
+    <option name="totallyTimeSpent" value="17302000" />
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="716" extended-state="6" />
@@ -379,6 +423,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/dashboard/app/register-client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -413,6 +458,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
     <entry file="file://$PROJECT_DIR$/dashboard/app/create-account.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -433,8 +480,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/app/index.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="100">
           <caret line="150" column="49" lean-forward="true" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+=======
+        <state relative-caret-position="92">
+          <caret line="128" column="20" selection-start-line="128" selection-start-column="20" selection-end-line="131" selection-end-column="57" />
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#p#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -448,5 +500,42 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/dashboard/app/register-client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="198" column="5" lean-forward="true" selection-start-line="182" selection-start-column="3" selection-end-line="198" selection-end-column="5" />
+          <folding>
+            <element signature="e#38780#38798#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/app/view-all-accounts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/app/view-all-reg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-496">
+          <caret line="14" selection-start-line="14" selection-end-line="27" selection-end-column="49" />
+          <folding>
+            <element signature="e#3889#3927#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/app/view-full-details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="308" column="49" lean-forward="true" selection-start-line="308" selection-start-column="49" selection-end-line="308" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 37e58abd2c87c50eb92c4a114494d19af8f9250c
   </component>
 </project>

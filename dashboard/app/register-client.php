@@ -143,9 +143,7 @@
                         <input class="form-control" id="projectID"type="text" name="projectID" placeholder=" Project ID">
                       </div> -->
     </div>
-                      
-                          
-<<<<<<< HEAD
+   
                     <div class="col-lg-12"
                     style="margin-top:30px;">
                         
@@ -153,7 +151,6 @@
                        <label><strong>REMARKS</strong></label>
                         <textarea rows="5" cols="50" class="form-control" name="Notes" placeholder="Please leave your remarks here  " required></textarea>
                       </div>
-=======
                     <div class="row">
                         <div class="col-lg-12"
                              style="margin-top:30px;">
@@ -170,7 +167,7 @@
                             <button class="btn btn-secondary active"type="submit" name="submit" style="width:100%">R E G I S T E R
                             </button>
                         </div>
->>>>>>> 951be46d03fc76e77d0888074cc19d9e2c6c1871
+
                     </div>
 
 
@@ -190,14 +187,22 @@
 
 if(isset($_POST['submit'])) {
 
-    $sql_query = "SELECT ID FROM cus_details WHERE ID=".$_GET['id']." AND (Status <> 'Pending' OR Status != '' )";
-    if(mysqli_num_rows(mysqli_query($con, $sql_query)) > 0) {
-        $id = $_GET['id'];
-        echo "<script>
-            alert('This registration has already been updated by another user!!');
-             window.location.href= 'view-full-details.php?id=$id';
-        </script>";
-        exit;
+    $sql_query = "SELECT * FROM cus_details WHERE ID = ".$_GET['id'];
+
+    $run = $con->query($qry);
+    if($run -> num_rows > 0) {
+        $row = $run->fetch_assoc();
+        $result = mysqli_query($con, $sql_query);
+        $row = mysqli_fetch_array($result);
+        if ($row["Status"] !="" && $row["Status"] != "Pending") {
+            $id = $_GET['id'];
+
+                echo "<script>
+                    alert('This registration has already been updated by another user!');
+                     window.location.href= 'view-full-details.php?id=$id';
+                </script>";
+            exit;
+        }
     }
 
     $_SESSION['last_insert_id']=$id;
@@ -214,7 +219,6 @@ if(isset($_POST['submit'])) {
     $ProAmt =$_POST['ProAmt'];
     
     $qry = "INSERT into Cus_Reg (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, EmirateIDNo, AgentName,ProAmt, Remarks, Address, Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$emirateIDNo', '$agentname','$ProAmt','$Notes','$Address', now())";
-   
   if(mysqli_query($con, $qry)) {
       $id=mysqli_insert_id($con);
 
