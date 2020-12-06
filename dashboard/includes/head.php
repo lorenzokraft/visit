@@ -39,9 +39,4 @@
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="../css/bracket.css">
 
-    <script type="text/javascript">
-        $(document).ready( function () {
-            $('.table').DataTable();
-        } );
-    </script>
 </head>

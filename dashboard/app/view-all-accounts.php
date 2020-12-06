@@ -59,6 +59,7 @@
                       <td><?php echo $sid; ?></td>
                     <td><?php echo  $uname; ?></td>
                     <td><?php echo $email; ?></td>
+
                     <td><?php echo $role; ?></td>
                     <td>
                     <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Edit
@@ -91,6 +92,9 @@
 <?php 
 
 if(isset($_POST['submit'])) {
+
+
+
   $_SESSION['last_insert_id']=$id;
     $first_name = $_POST['first_name'];
     $email = $_POST['email'];
@@ -113,14 +117,14 @@ if(isset($_POST['submit'])) {
    
   if(mysqli_query($con, $qry)) {
       $id=mysqli_insert_id($con);
-  
+
   //header('Location: register_details.php');
   
   if (isset($_POST['submit'])) {
   $_SESSION['last_insert_id']=$id;
   echo '
           <script>
-             window.location.href= "http://localhost/algbra/EditableInvoice/receipt.php";
+             window.location.href= "../../EditableInvoice/receipt.php";
           </script>
       ';       
   }else {

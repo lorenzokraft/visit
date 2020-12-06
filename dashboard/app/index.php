@@ -145,8 +145,7 @@
                         $notes = $row['Notes'];
                         $agent = $row['AgentName'];
                         $time = $row['Time'];
-                       
-                      
+                        $status = $row['Status']?$row['Status']:"Pending";
                   ?>
                   <tr>
                       <td><?php echo $sid; ?></td>
@@ -160,11 +159,17 @@
                     <td><?php //echo $visaChange; ?></td>
                     <td><?php //echo $visaGlobal; ?></td> -->
                     <!--td><?php //echo $notes; ?></td-->
-                    <!--td><?php //echo $agent; ?></td-->
-                    <td><?php echo $time; ?></td>
+                      <td><span style="font-size: 12px; padding: 5px;" class="badge <?php echo $status=="Pending"?"badge-info":($status=="Accepted"?"badge-success":"badge-warning") ?>"><?php echo $status ?></span></td>
+
+                      <td><?php echo $time; ?></td>
                     <td>
-                    <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Accept
-                    </button>
+                        <?php if($status=="Pending"){ ?>
+                            <button class="btn btn-success active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Accept
+                            </button>
+                        <?php }else{ ?>
+                            <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> View
+                            </button>
+                        <?php } ?>
                   
                       </div>
                     </td>
@@ -286,9 +291,5 @@
     <!-- ########## START: FOOTER ########## -->
     <?php include_once("../includes/footer.php")?>
     <!-- ########## END: FOOTER ########## -->
-    <script src="../lib/jquery-switchbutton/jquery.switchButton.js"></script>
-    <script src="../lib/peity/jquery.peity.js"></script>
-
-    <script src="../js/bracket.js"></script>
   </body>
 </html>

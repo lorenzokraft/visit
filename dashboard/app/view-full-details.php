@@ -63,10 +63,11 @@
                   
 						<?php 
 						
-						$qry = "SELECT * from cus_details WHERE ID=".$_GET['id']."";
+						$qry = "SELECT * from cus_details WHERE ID=".$_GET['id'];
 					  				$run = $con -> query($qry);
 					  				if($run -> num_rows > 0){
 					  				$row = $run -> fetch_assoc();
+
 					  						$first_name = $row['FirstName'];
 					  						$sur_name = $row['Surname'];
 					  						$name = $first_name . ' ' . $sur_name;
@@ -80,6 +81,7 @@
 					  						$agent = $row['AgentName'];
                         $time = $row['Time'];
                         $referalAgent = $row['referalAgent'];
+                        $status = $row['Status'];
 					  				}
 						?>
 					  	    <!-- <caption style='font-size:14px;font-weight:bold;'>Enquries Records</caption> -->
@@ -119,6 +121,10 @@
 									<th>Refered Agent</th>
 									<td><?php echo $referalAgent; ?></td>
 								</tr>
+                                <tr class="table table-valign-middle mg-b-0">
+                                    <th>Status</th>
+                                    <td><?php echo $status?$status:"Pending"; ?></td>
+                                </tr>
 					  		</thead>
 					  		<tbody>
 					  		
@@ -155,17 +161,21 @@
                 </div><!-- col-9 -->
           </div><!-- br-pagebody -->
           <div class="col-4">
-            <button class="btn btn-primary pd-y-12 btn-block" style="color: #fff!important;
-                    background-color: #858e96!important;
-                    border-color: #1d2939!important;">
-                    <a href="register-client.php?id=<?php echo $row['ID']; ?>">Register Client</a>
-                </button>
+              <?php if($row['Status'] == "Pending" || empty($row['Status']))
+              { ?>
+                    <button class="btn btn-primary pd-y-12 btn-block" style="color: #fff!important;
+                            background-color: #858e96!important;
+                            border-color: #1d2939!important;">
+                            <a href="register-client.php?id=<?php echo $row['ID']; ?>">Register Client</a>
+                        </button>
+
 <br>
                 <button class="btn btn-primary pd-y-12 btn-block" style="color: #fff!important;
                     background-color: #858e96!important;
                     border-color: #1d2939!important;">
                     <a href="#" data-toggle="modal" data-target="#modaldemo2">Add To Follow Up </a>
                 </button>
+              <?php } ?>
 <br>
                 <button class="btn btn-primary pd-y-12 btn-block" style="color: #fff!important;
                     background-color: #858e96!important;
@@ -239,7 +249,7 @@
                   <p class="mg-b-20 mg-x-20">You should leave some Remarks about what the client has said. <br>Let us know in particular the date and time they are willing to come back for the project.   </p>
 
                   <div class="form-group">
-                  <form action="view-full-details.php" method="POST" enctype="multipart/form-data">
+                  <form action="view-full-details.php?id=<?php echo $_GET["id"] ?>" method="POST" enctype="multipart/form-data">
 
                     <textarea name="ffupcomment"rows="3" class="form-control" placeholder="Leave some comment about the client response HERE" required></textarea>
 
@@ -290,6 +300,17 @@
 <?php
 
 if(isset($_POST['submit'])) {
+
+    $sql_query = "SELECT ID FROM cus_details WHERE ID=".$_GET['id']." AND (Status <> 'Pending' OR Status != '' )";
+    if(mysqli_num_rows(mysqli_query($con, $sql_query)) > 0) {
+        $id = $_GET['id'];
+        echo "<script>
+            alert('This registration has already been updated by another user!');
+             window.location.href= 'view-full-details.php?id=$id';
+        </script>";
+        exit;
+    }
+
   $_SESSION['last_insert_id']=$id;
     $first_name = $_POST['first_name'];
     $email = $_POST['email'];
@@ -308,6 +329,16 @@ if(isset($_POST['submit'])) {
   
     if(mysqli_query($con, $qry)) {
       $id=mysqli_insert_id($con);
+
+        $sql_query = "UPDATE `cus_details` SET Status='Follow up' WHERE ID=".$_GET["id"];
+        if(!mysqli_query($con, $sql_query))
+        {
+            $error = mysqli_error($con);
+            echo "<script>
+            alert('$error $sql_query');
+        </script>";
+            exit;
+        }
   
   //header('Location: register_details.php');
   

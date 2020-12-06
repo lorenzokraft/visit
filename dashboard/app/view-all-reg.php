@@ -73,6 +73,7 @@
                         $notes = $row['Notes'];
                         $agent = $row['AgentName'];
                         $time = $row['Time'];
+                        $status = $row['Status']?$row['Status']:"Pending";
                        
                       
                   ?>
@@ -88,12 +89,16 @@
                     <td><?php //echo $visaChange; ?></td>
                     <td><?php //echo $visaGlobal; ?></td> -->
                     <!--td><?php //echo $notes; ?></td-->
-                    <!--td><?php //echo $agent; ?></td-->
+                      <td><span style="font-size: 12px; padding: 5px;" class="badge <?php echo $status=="Pending"?"badge-info":($status=="Accepted"?"badge-success":"badge-warning") ?>"><?php echo $status ?></span></td>
                     <td><?php echo $time; ?></td>
                     <td>
-                    <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Accept
+                     <?php if($status=="Pending"){ ?>
+                    <button class="btn btn-success active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> Accept
                     </button>
-                  
+                    <?php }else{ ?>
+                         <button class="btn btn-dark active btn-block mg-b-10" style="padding:4px;color:#ffffff!important;"><a href='view-full-details.php?id=<?php echo $row['ID']; ?>'> View
+                         </button>
+                      <?php } ?>
                       </div>
                     </td>
                     
@@ -144,7 +149,9 @@ if(isset($_POST['submit'])) {
    
   if(mysqli_query($con, $qry)) {
       $id=mysqli_insert_id($con);
-  
+
+
+
   //header('Location: register_details.php');
   
   if (isset($_POST['submit'])) {

@@ -733,7 +733,7 @@
          
                   <?php 
                   
-                  $qry = "SELECT * from cus_details WHERE ID=".$_GET['id']."";
+                  $qry = "SELECT * from cus_details WHERE ID=".$_GET['id'];
                           $run = $con -> query($qry);
                           if($run -> num_rows > 0){
                           $row = $run -> fetch_assoc();
@@ -752,38 +752,38 @@
                               $referalAgent = $row['referalAgent'];
                           }
                   ?>
-                  <form action="register-client.php" method="POST" enctype="multipart/form-data" style="width:100%">
+                  <form action="register-client.php?id=<?php echo $_GET['id'] ?>" method="POST" enctype="multipart/form-data" style="width:100%">
                         <div class="input-group">
                         <span class="input-group-addon" style="width:118px;">Client Name </span>
-                        <input id="FirstName" type="text" class="form-control" name="first_name" value="<?php echo $name ?> ">
+                        <input required id="FirstName" type="text" class="form-control" name="first_name" value="<?php echo $name ?> ">
                       </div>
                        
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Client Email </span>
-                        <input id="Email" type="email" class="form-control" name="email" value="<?php echo $email ?> ">
+                        <input required id="Email" type="email" class="form-control" name="email" value="<?php echo $email ?> ">
                       </div>
                       
 
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Phone Number </span>
-                        <input id="MobileNumber" type="text" class="form-control" name="Phone_Number" value="<?php echo $phone ?> ">
+                        <input required id="MobileNumber" type="text" class="form-control" name="Phone_Number" value="<?php echo $phone ?> ">
                       </div>
                       
 
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">WhatsApp </span>
-                        <input id="WhatsApp" type="text" class="form-control" name="WhatsApp" value="<?php echo $whatsapp ?> ">
+                        <input required id="WhatsApp" type="text" class="form-control" name="WhatsApp" value="<?php echo $whatsapp ?> ">
                       </div>
                       
                       
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Nationality </span>
-                        <input id="Nationality" type="text" class="form-control" name="Nationality" value="<?php echo $nationality ?> ">
+                        <input required id="Nationality" type="text" class="form-control" name="Nationality" value="<?php echo $nationality ?> ">
                       </div>
                       
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Visit Date </span>
-                        <input id="Time" type="text" class="form-control" name="Time" value="<?php echo $time ?> ">
+                        <input required id="Time" type="text" class="form-control" name="Time" value="<?php echo $time ?> ">
                       </div>
 
                       <div class="input-group" style="margin-top:10px;">
@@ -793,55 +793,56 @@
 
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Refered By </span>
-                        <input id="AgentName" type="text" class="form-control" name="AgentName" value="<?php echo $referalAgent ?>"readonly>
+                        <input  required id="AgentName" type="text" class="form-control" name="AgentName" value="<?php echo $referalAgent ?>"readonly>
                       </div>
                       
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Emirate ID/ Passport</span>
-                        <input class="form-control" id="emirateID"type="text" name="emirateIDNo" placeholder=" Emirate ID Number">
+                        <input  required class="form-control" id="emirateID"type="text" name="emirateIDNo" placeholder=" Emirate ID Number">
                       </div>
 
                       <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">UAE Address</span>
-                        <input class="form-control" id="Address"type="text" name="Address" placeholder=" UAE Address">
+                        <input required class="form-control" id="Address"type="text" name="Address" placeholder=" UAE Address">
+                      </div>
+
+
+                      <div class="input-group" style="margin-top:10px;">
+                          <span class="input-group-addon" style="width:118px;">Select Project</span>
+                          <select class="form-control" required id="ProAmt" name="ProAmt">
+                              <option value="">--Click here to Select Project--</option>
+                              <option value="AED 450">10 Days Project</option>
+                              <option value="AED 950">15 Days Project </option>
+
+                          </select>
                       </div>
 
                       <!-- <div class="input-group" style="margin-top:10px;">
                         <span class="input-group-addon" style="width:118px;">Project ID</span>
                         <input class="form-control" id="projectID"type="text" name="projectID" placeholder=" Project ID">
                       </div> -->
-
-                          
-                <div class="form-group">
-        <div class="form-group">
-            <label>Select Project </label>
-
-            <select id="ProAmt" name="ProAmt" style="width:100%;
-            height: 40px;"> 
-            <option value=" ">Click here to Select</option>
-            <option value="AED 450">10 Days Project</option>
-            <option value="AED 950">15 Days Project </option>
-            
-            </select>
-        </div>
     </div>
                       
                           
-                    <div class="col-lg-12"
-                    style="margin-top:30px;">
-                        
-                      <div class="form-group">
-                       <label><strong>REMARKS</strong></label>
-                        <textarea rows="5" cols="50" class="form-control" name="Notes" placeholder="Please leave your remarks here  " required>
+                    <div class="row">
+                        <div class="col-lg-12"
+                             style="margin-top:30px;">
+
+                            <div class="form-group">
+                                <label><strong>REMARKS</strong></label>
+                                <textarea required rows="5" cols="50" class="form-control" name="Notes" placeholder="Please leave your remarks here  " required>
                         </textarea>
-                      </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <br>
+                            <button class="btn btn-secondary active"type="submit" name="submit" style="width:100%">R E G I S T E R
+                            </button>
+                        </div>
                     </div>
 
-                      <div class="col-lg-12">
-                        <br>
-                        <button class="btn btn-secondary active"type="submit" name="submit" style="width:100%">R E G I S T E R
-                        </button>
-                      </div>
+
               </form>   
            </div>
         </div><!-- br-section-wrapper -->
@@ -883,7 +884,18 @@
 <?php 
 
 if(isset($_POST['submit'])) {
-  $_SESSION['last_insert_id']=$id;
+
+    $sql_query = "SELECT ID FROM cus_details WHERE ID=".$_GET['id']." AND (Status <> 'Pending' OR Status != '' )";
+    if(mysqli_num_rows(mysqli_query($con, $sql_query)) > 0) {
+        $id = $_GET['id'];
+        echo "<script>
+            alert('This registration has already been updated by another user!!');
+             window.location.href= 'view-full-details.php?id=$id';
+        </script>";
+        exit;
+    }
+
+    $_SESSION['last_insert_id']=$id;
     $first_name = $_POST['first_name'];
     $email = $_POST['email'];
     $Phone_Number = $_POST['Phone_Number'];
@@ -895,23 +907,30 @@ if(isset($_POST['submit'])) {
     $Address = $_POST['Address'];
     $Notes = $_POST['Notes']; 
     $ProAmt =$_POST['ProAmt'];
-
-  
-    
     
     $qry = "INSERT into Cus_Reg (FirstName, Surname, Email,MobileNumber, WhatsApp, Nationality, Hear, EmirateIDNo, AgentName,ProAmt, Remarks, Address, Time)values ('$first_name', '', '$email', '$Phone_Number', '$whatsapp', '$nationality', '$Hear', '$emirateIDNo', '$agentname','$ProAmt','$Notes','$Address', now())";
-    
    
   if(mysqli_query($con, $qry)) {
       $id=mysqli_insert_id($con);
-  
-  //header('Location: register_details.php');
+
+      $sql_query = "UPDATE `cus_details` SET Status='Accepted' WHERE ID=".$_GET["id"];
+      if(!mysqli_query($con, $sql_query))
+      {
+          $error = mysqli_error($con);
+          echo "<script>
+            '$error $sql_query';
+        </script>";
+          echo mysqli_error($con).$sql_query;
+          exit;
+      }
+
+      //header('Location: register_details.php');
   
   if (isset($_POST['submit'])) {
   $_SESSION['last_insert_id']=$id;
   echo '
           <script>
-             window.location.href= "http://localhost/algbra/EditableInvoice/receipt.php";
+             window.location.href= "../../EditableInvoice/receipt.php";
           </script>
       ';       
   }else {

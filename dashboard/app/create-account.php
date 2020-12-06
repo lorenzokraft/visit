@@ -151,9 +151,6 @@ if(!isset($_SESSION['username'])) { //if login in session is not set
     <!-- ########## START: FOOTER ########## -->
     <?php include_once("../includes/footer.php")?>
     <!-- ########## END: FOOTER ########## -->
-    <script src="../lib/select2/js/select2.min.js"></script>
-
-    <script src="../js/bracket.js"></script>
     <script>
       $(function(){
         'use strict'
